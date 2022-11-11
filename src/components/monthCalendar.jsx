@@ -5,25 +5,28 @@ import CardContext from '../data/cardContext';
 
 
 
-
-
 const MonthCalendar = () => {
-    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue] = useContext(CardContext);
+    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive] = useContext(CardContext);
     
-
+    let flag1=false;
 
     const onPanelChange=(newValue)=>{
-        console.log("onPanelChange");
+        // console.log("onPanelChange");
         setSelectedValue(newValue);
+        flag1=true;
 
     }
     const onSelect=(value)=>{
         // console.log("onSelect");
-        setSelectedValue(value);
-        setScale('Day');
-       
-        // console.log(value.format('Y'));
-        // console.log(moment('2017-01-25'));
+        if (!flag1){
+            setSelectedValue(value);
+            setScale('Day');
+        }
+        else
+        {
+            flag1=false; 
+        }
+        
     }
  
     useEffect(() => {
@@ -36,7 +39,7 @@ const MonthCalendar = () => {
    const getListData = (value) => {
     let listData=[];
     // console.log(value.date(), value.month(), value.year());
-    listData= cards.filter( obj=> obj.dateDay==value.date() && obj.dateMonth==value.month() && obj.dateYear==value.year()).map(
+    listData= cards.filter( obj=> obj.date==value.format("YYYY-MM-DD")).map(
         (item)=>{
             return {'type': item.priority,
                     'content':item.title}

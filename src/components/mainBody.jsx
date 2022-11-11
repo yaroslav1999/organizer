@@ -4,6 +4,7 @@ import CardContext from '../data/cardContext';
 import MonthCalendar from './monthCalendar';
 import moment from 'moment';
 import DayCalendar from './dayCalendar';
+import SearchResult from './searchResult';
 
 const MainBody = () => {
     const [scale, setScale, cards, setCards, selectedValue, setSelectedValue] = useContext(CardContext);
@@ -17,15 +18,22 @@ const MainBody = () => {
 
     return (
         <div className="monthCalendar">
-            {scale==='Day'?
+            {scale==='Day'&&
             (
                 <>
                     <DayCalendar/>
                 </>
-            )
-            :(
+            )}
+            {scale==='Month'&&
+            (
                 <>
                     <MonthCalendar/>
+                </>
+            )}
+            {scale==='Search'&&
+            (
+                <>
+                    <SearchResult/>
                 </>
             )}
 

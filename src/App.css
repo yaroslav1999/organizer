@@ -48,6 +48,44 @@
     display: none;
   } */
   .monthCalendar{
-    width: 80%;
-    height: 300px;
+    width: 100%;
+    height: 800px;
   }
+  .card{
+    width: 200px;
+    padding:10px;
+    background-color: #e9e9e9;
+    border-radius: 20px;
+    border: 1px solid rgb(146, 146, 146);
+    box-shadow: 4px 5px 15px 1px #000000;
+
+  }
+  .cardsWrapper{
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+  .badgeOver{
+    margin: 10px;
+  }
+  .plusBtn{
+    
+    background-color: #e9e9e9;
+    border-radius: 20px;
+    border: 1px solid rgb(146, 146, 146);
+    box-shadow: 4px 5px 15px 1px #000000;
+    margin: 10px;
+    height: 150px;
+    width: 150px;
+    align-self: center;
+  }
+  .plusBtn img{
+    width: 100px;
+    height: 100px;
+    
+  }
+
+.searchTab{
+  border: 1px solid rgb(146, 146, 146);
+  padding:10px;
+}
