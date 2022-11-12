@@ -64,12 +64,14 @@ const LeftMenu = () => {
             const arr=[...menuItems];
             arr[2].disabled=true;
             setMenuItems(arr);
+            setScale('Month');
             return;
         }
 
         const arr=[...menuItems];
         arr[2].disabled=false;
         setMenuItems(arr);
+        setScale('Search');
 
         setSearchResul(result);
         console.log(result);

@@ -1,4 +1,4 @@
-import { Badge, Button, DatePicker, Form, Input, Modal, Radio, Select, Tag, TimePicker } from 'antd';
+import { Badge, Button, DatePicker, Divider, Form, Input, Modal, Radio, Select, Tag, TimePicker } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 import CardContext from '../data/cardContext';
@@ -67,6 +67,14 @@ const Card = ({cardData, cardUpdate}) => {
     }
     
     const saveInfo=(values)=>{
+        if(scale==='Search'){
+            const arr=[...menuItems];
+            arr[2].disabled=true;
+            setMenuItems(arr);
+            setScale('Month');
+        }
+        
+
         setIsModalOpen(false);
         setCardDataLocal(cardData);
         values.id=cardDataLocal.id;
@@ -79,6 +87,13 @@ const Card = ({cardData, cardUpdate}) => {
     }
 
     const onDelete=()=>{
+        if(scale==='Search'){
+            const arr=[...menuItems];
+            arr[2].disabled=true;
+            setMenuItems(arr);
+            setScale('Month');
+        }
+
         console.log("delete");
         const newFilms = cards.filter((card) => card.id !== cardDataLocal.id);
         setCards(newFilms);
@@ -141,10 +156,13 @@ const Card = ({cardData, cardUpdate}) => {
                     <Select mode="tags"style={{width: '100%',}} placeholder="Tags Mode" options={tagsCollection} />
                 </Form.Item>
                 
-
-                <Button type="primary" htmlType="submit">Сохранить</Button>
-                <Button onClick={onDelete} type="primary">Удалить</Button>
-                <Button onClick={onCancel} type="primary">Выйти</Button>
+                <Divider />
+                <div className="modalFooter">
+                    <Button type="primary" htmlType="submit">Сохранить</Button>
+                    <Button onClick={onDelete} type="primary">Удалить</Button>
+                    <Button onClick={onCancel} type="primary">Выйти</Button>
+                </div>
+                
             </Form>
             </Modal>
         </div>
