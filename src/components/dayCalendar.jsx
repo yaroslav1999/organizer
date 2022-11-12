@@ -6,7 +6,7 @@ import Card from './Card';
 import { v4 as uuidv4 } from "uuid";
 
 const DayCalendar = () => {
-    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive] = useContext(CardContext);
+    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive,menuItems, setMenuItems, searchResul, setSearchResul] = useContext(CardContext);
     const [cardsData, setCardsData] = useState([]);
     // const [isModalOpen, setIsModalOpen] = useState(false);
     
@@ -16,8 +16,9 @@ const DayCalendar = () => {
         const listCard= cards.filter( obj=> obj.date==selectedValue.format("YYYY-MM-DD"));
 
         setCardsData(listCard);
-        
-        console.log(selectedValue.format("YYYY-MM-DD"));
+        // console.log("Day");
+        // console.log(cardsData);
+        // console.log(selectedValue.format("YYYY-MM-DD"));
 
       }, [cards]);
       

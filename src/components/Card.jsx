@@ -4,7 +4,7 @@ import moment from 'moment';
 import CardContext from '../data/cardContext';
 
 const Card = ({cardData, cardUpdate}) => {
-    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue] = useContext(CardContext);
+    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive,menuItems, setMenuItems, searchResul, setSearchResul] = useContext(CardContext);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [cardDataLocal, setCardDataLocal] = useState(cardData);
     const [tagsCollection, setTagsCollection] = useState([]);
@@ -48,7 +48,7 @@ const Card = ({cardData, cardUpdate}) => {
         // console.log(arr2);
         setTagsCollection(arr2);
 
-        
+        // console.log(cardDataLocal);
 
     }, [cards]);
 
@@ -80,6 +80,8 @@ const Card = ({cardData, cardUpdate}) => {
 
     const onDelete=()=>{
         console.log("delete");
+        const newFilms = cards.filter((card) => card.id !== cardDataLocal.id);
+        setCards(newFilms);
         setIsModalOpen(false);
     }
     const onCancel=()=>{

@@ -20,8 +20,9 @@ const options = [
   ];
 
 const LeftMenu = () => {
-    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue] = useContext(CardContext);
+    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive,menuItems, setMenuItems, searchResul, setSearchResul] = useContext(CardContext);
     const [checkedList, setCheckedList] = useState([]);
+    
 
     const onChange = (list) => {
         setCheckedList(list);
@@ -31,6 +32,9 @@ const LeftMenu = () => {
     const onSearch=(value)=>{
         let rez=[], rez1=[], rez2=[], rez3=[];
         if (checkedList.length===0){
+            const arr=[...menuItems];
+            arr[2].disabled=true;
+            setMenuItems(arr);
             return;
         }
         console.log(value);
@@ -43,7 +47,7 @@ const LeftMenu = () => {
                     rez2=cards.filter(Carditem=>Carditem.body.includes(value));
                     break;
                 case 'tags':
-                    rez3=cards.filter(Carditem=>Carditem.tags.reduce((sum, cur)=>{return sum+cur}).includes(value) );
+                    rez3=cards.filter(Carditem=>Carditem.tags.reduce((sum, cur)=>{return sum+" "+cur},[]).includes(value) );
                     break;
                 default:
                     break;
@@ -55,7 +59,19 @@ const LeftMenu = () => {
         for (let str of rez) {
             if (!result.includes(str)) { result.push(str)}
         }
-        
+
+        if (result.length===0){
+            const arr=[...menuItems];
+            arr[2].disabled=true;
+            setMenuItems(arr);
+            return;
+        }
+
+        const arr=[...menuItems];
+        arr[2].disabled=false;
+        setMenuItems(arr);
+
+        setSearchResul(result);
         console.log(result);
 
     }

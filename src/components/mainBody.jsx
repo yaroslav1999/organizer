@@ -7,12 +7,12 @@ import DayCalendar from './dayCalendar';
 import SearchResult from './searchResult';
 
 const MainBody = () => {
-    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue] = useContext(CardContext);
+    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive,menuItems, setMenuItems, searchResul, setSearchResul] = useContext(CardContext);
 
     useEffect(() => {
         // console.log(cards);
         //console.log(moment().format('dddd'));
-
+        // console.log(searchResul);
 
       }, []);
 

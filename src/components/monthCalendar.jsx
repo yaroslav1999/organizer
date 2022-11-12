@@ -6,7 +6,7 @@ import CardContext from '../data/cardContext';
 
 
 const MonthCalendar = () => {
-    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive] = useContext(CardContext);
+    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive,menuItems, setMenuItems, searchResul, setSearchResul] = useContext(CardContext);
     
     let flag1=false;
 

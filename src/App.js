@@ -17,6 +17,7 @@ function App() {
   const [selectedValue, setSelectedValue] = useState(() => moment());
   const [isAddModalActive, setAddModalActive] = useState(false);
   const [menuItems, setMenuItems] = useState([]);
+  const [searchResul, setSearchResul] = useState([]);
 
   // const [cards, setCards] = useState(JSON.parse(localStorage.getItem('cards')) || cardsData);
 
@@ -41,7 +42,7 @@ function App() {
   };
 
   return (
-    <CardContext.Provider value={[scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive]}>
+    <CardContext.Provider value={[scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive,menuItems, setMenuItems, searchResul, setSearchResul]}>
     <Layout>
     <Header className="header">
       <div className="logo1">Organizer</div>

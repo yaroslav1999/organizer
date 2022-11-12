@@ -4,7 +4,7 @@ import CardContext from '../data/cardContext';
 import moment from 'moment';
 
 const AddCard = ({addCard, selectedDate}) => {
-    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive] = useContext(CardContext);
+    const [scale, setScale, cards, setCards, selectedValue, setSelectedValue, isAddModalActive, setAddModalActive,menuItems, setMenuItems, searchResul, setSearchResul] = useContext(CardContext);
     // const [isModalOpen, setIsModalOpen] = useState(isAddModalActive);
     const formatTime = 'HH:mm';
     const formatDate = 'YYYY-MM-DD';
